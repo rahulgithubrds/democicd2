@@ -1,2 +1,2 @@
 def greet():
-    return "Hello, CI/CD!"
+    return 3+4
