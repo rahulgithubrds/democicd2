@@ -1,14 +1,22 @@
 name: Python CI
 
-on: [push]
+on: [push]  # 👈 Important to trigger on push
 
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
-    - uses: actions/checkout@v3
-    - uses: actions/setup-python@v4
+    - name: Checkout repo
+      uses: actions/checkout@v3
+
+    - name: Setup Python
+      uses: actions/setup-python@v4
       with:
         python-version: '3.8'
-    - run: pip install -r requirements.txt
-    - run: pytest
+
+    - name: Install dependencies
+      run: pip install -r requirements.txt
+
+    - name: Run tests
+      run: pytest
